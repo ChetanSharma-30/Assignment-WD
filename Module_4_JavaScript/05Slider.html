@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .slider-img {
+        width: 100%;
+      }
+      /* .animationslide {
+        animation: slideleft 2s;
+      } */
+      /* @keyframes slideleft {
+            to{ transform: scale(1) rotate(360deg); }
+            from{transform: scale(.25) rotate(0deg);}
+
+        } */
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slider-img">
+        <img class="animationslide" src="../../Images/colorful.jpg" alt="" />
+      </div>
+      <div class="slider-img">
+        <img src="../../Images/Dog.jpg" alt="" />
+      </div>
+      <div class="slider-img">
+        <img src="../../Images/House.jpg" alt="" />
+      </div>
+      <div class="slider-img">
+        <img src="../../Images/lonetree.jpg" alt="" />
+      </div>
+    </div>
+    <script>
+      count = 0;
+      function slider() {
+        imgsData = document.getElementsByClassName("slider-img");
+        // console.log(imgsData);
+        for (let index = 0; index < imgsData.length; index++) {
+          console.log(imgsData[index]);
+          imgsData[index].style.display = "none";
+          imgsData[index].classList.remove("animationslide");
+        }
+        if (count >= imgsData.length) {
+          count = 0;
+        }
+        // console.log(count);
+        imgsData[count].style.display = "block";
+        // console.log(imgsData[count].classList);
+        imgsData[count].classList.add("animationslide");
+        count++;
+        setTimeout(slider, 3000);
+      }
+      slider();
+    </script>
+  </body>
+</html>
